@@ -26,6 +26,7 @@
     "gulp": "^3.7.0",
     "gulp-changed": "^0.4.0",
     "gulp-coffee": "^2.0.0",
+    "gulp-less": "^1.2.3",
     "react": "^0.10.0",
     "vinyl-source-stream": "^0.1.1",
     "watchify": "^0.10.2"
