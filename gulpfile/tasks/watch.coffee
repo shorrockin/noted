@@ -1,5 +1,5 @@
-gulp  = require 'gulp'
-paths = require './paths'
+gulp     = require 'gulp'
+settings = require './settings'
 
 gulp.task 'watch', () ->
-  gulp.watch paths.scripts.src, ['scripts']
+  gulp.watch settings.scripts.src, ['browserify']

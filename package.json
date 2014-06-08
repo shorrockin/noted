@@ -3,9 +3,34 @@
   "engines": {
     "node": ">= 0.10.0"
   },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "coffeeify"
+    ]
+  },
+  "browserify-shim": {
+    "plugin": {
+      "exports": "plugin",
+      "depends": [
+        "jquery:$"
+      ]
+    }
+  },
   "devDependencies": {
+    "browserify": "^4.1.8",
+    "browserify-shim": "^3.5.0",
     "coffee-script": "^1.7.1",
+    "coffeeify": "^0.6.0",
+    "envify": "^1.2.1",
     "gulp": "^3.7.0",
-    "gulp-coffee": "^2.0.0"
+    "gulp-changed": "^0.4.0",
+    "gulp-coffee": "^2.0.0",
+    "react": "^0.10.0",
+    "vinyl-source-stream": "^0.1.1",
+    "watchify": "^0.10.2"
+  },
+  "dependencies": {
+    "jquery": "^2.1.1"
   }
 }

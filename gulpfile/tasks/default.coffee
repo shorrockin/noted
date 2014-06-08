@@ -1,3 +1,3 @@
 gulp = require 'gulp'
 
-gulp.task 'default', ['scripts', 'watch']
+gulp.task 'default', ['browserify', 'watch']
