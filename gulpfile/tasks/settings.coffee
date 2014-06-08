@@ -9,6 +9,9 @@ client =
 
 
 module.exports = {
+  client:
+    dest: client.dest
+
   scripts:
     debug: true
     app: client.app
