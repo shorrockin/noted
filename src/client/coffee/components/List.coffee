@@ -4,8 +4,7 @@ React = require "react"
 
 List = React.createClass
   render: () ->
-    createItem = (text) ->
-      li null, text
+    createItem = (text) -> li(null, text)
 
     ul null, @props.items.map(createItem)
 

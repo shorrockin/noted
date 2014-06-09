@@ -12,6 +12,13 @@ module.exports = {
   client:
     dest: client.dest
 
+  server:
+    root: "#{src}/server"
+    src: "#{src}/server/**/*.go"
+    main: "#{src}/server/main"
+    gohome: "build/go"
+    pkg: "github.com/shorrockin/noted"
+
   scripts:
     debug: true
     app: client.app

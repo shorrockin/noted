@@ -1,3 +1,3 @@
 gulp = require 'gulp'
 
-gulp.task 'build', ['browserify', 'less', 'copy']
+gulp.task 'build', ['browserify', 'less', 'go', 'copy']

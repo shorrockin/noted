@@ -13,10 +13,11 @@ App = React.createClass
 
   onSubmit: (e) ->
     e.preventDefault()
-    @setState {
-      items: [@state.text].concat(@state.items),
-      text: ""
-    }
+    if @state.text.trim() != ""
+      @setState {
+        items: [@state.text].concat(@state.items),
+        text: ""
+      }
 
   render: () ->
     div null,
