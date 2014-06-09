@@ -4,7 +4,6 @@ List  = require "./List"
 {div, span}   = React.DOM
 {form, input} = React.DOM
 
-
 App = React.createClass
   getInitialState: () ->
     { items: [], text: "" }
@@ -14,9 +13,8 @@ App = React.createClass
 
   onSubmit: (e) ->
     e.preventDefault()
-    @state.items.unshift(@state.text)
     @setState {
-      items: @state.items,
+      items: [@state.text].concat(@state.items),
       text: ""
     }
 
