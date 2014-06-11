@@ -1,6 +1,6 @@
-notify  = require "gulp-notify"
-utils   = require "gulp-util"
-plumber = require "gulp-plumber"
+Notifier = require "node-notifier"
+utils    = require "gulp-util"
+plumber  = require "gulp-plumber"
 
 module.exports = (name) ->
   magenta = utils.colors.magenta
@@ -11,7 +11,8 @@ module.exports = (name) ->
   plumber (error) ->
     log red("#{name} error"), "in", magenta("'#{error.fileName}'"), "line", cyan("#{error.lineNumber}")
     log "\tmessage:", cyan("'#{error.message}'")
-    notify {
+
+    new Notifier().notify {
       title: "#{name} error"
       message: error.message
     }

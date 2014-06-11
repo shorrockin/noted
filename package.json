@@ -33,6 +33,7 @@
     "gulp-shell": "^0.2.5",
     "gulp-sym": "0.0.13",
     "gulp-util": "^2.2.16",
+    "node-notifier": "^3.0.3",
     "react": "^0.10.0",
     "through2": "^0.5.1",
     "vinyl-source-stream": "^0.1.1",
