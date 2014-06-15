@@ -1,7 +1,6 @@
 src  = "src"
 dest = "build"
 
-
 client =
   src: "#{src}/client"
   dest: "#{dest}/client"
@@ -14,6 +13,8 @@ module.exports = {
 
   server:
     root: "#{src}/server"
+    binary: "server"
+    dest: dest
     src: "#{src}/server/**/*.go"
     main: "#{src}/server/main"
     gohome: "build/go"

@@ -8,4 +8,4 @@ gulp.task 'go', () ->
   gulp
     .src(settings.server.root)
     .pipe(symlink("#{settings.server.gohome}/src/#{settings.server.pkg}", { force: true }))
-    .pipe(shell("GOPATH=`pwd` go build -o ../server #{settings.server.pkg}/main", { cwd: settings.server.gohome }))
+    .pipe(shell("GOPATH=$GOPATH:`pwd` go build -o ../#{settings.server.binary} #{settings.server.pkg}/main", { cwd: settings.server.gohome }))
