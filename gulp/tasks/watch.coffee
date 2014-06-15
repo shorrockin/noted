@@ -2,7 +2,7 @@ gulp     = require 'gulp'
 settings = require './settings'
 sync     = require "browser-sync"
 shell    = require 'gulp-shell'
-process  = require 'child_process'
+spawn    = require('child_process').spawn
 Notifier = require 'node-notifier'
 
 gulp.task 'watch', ['build'], () ->
@@ -12,9 +12,9 @@ gulp.task 'watch', ['build'], () ->
   startServer = (signal) ->
     server.kill(signal) if (signal and server)
 
-    server = process.spawn("#{settings.server.dest}/#{settings.server.binary}")
-    server.stdout.on "data", (data) -> console.log(data.toString())
-    server.stderr.on "data", (data) -> console.log(data.toString())
+    server = spawn("#{settings.server.dest}/#{settings.server.binary}")
+    server.stdout.on "data", (data) => process.stdout.write(data)
+    server.stderr.on "data", (data) => process.stderr.write(data)
     server.on "close", (code) ->
       new Notifier().notify { title: "Noted Server Restarting", message: "With Code #{code}" }
 

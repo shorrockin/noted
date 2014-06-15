@@ -24,8 +24,21 @@ func (note *Note) FromJson(bytes []byte) (err error) {
 	return
 }
 
+// Notes declaration with allows for the marshelling of a collection of
+// notes.
+type NoteCollection []Note
+
+func (notes NoteCollection) String() string {
+	bytes, error := json.Marshal(notes)
+	if error != nil {
+		log.Warn("encountered error marshelling notes collection: %v", error)
+		return ""
+	}
+	return string(bytes)
+}
+
 // Note is a collection of all the notes we're currently managing.
-var Notes []Note
+var Notes NoteCollection
 
 // CreateNote creates a note with the specified string as a note
 func CreateNote(content string) (note Note) {

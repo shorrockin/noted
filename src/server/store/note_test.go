@@ -32,7 +32,7 @@ func TestJsonRendering(t *testing.T) {
 	}
 
 	if noIdNote.Content != "hello my friend" {
-		t.Errorf("expected 'hello my friend' not, got %v, from %v", noIdContent, noIdNote)
+		t.Errorf("expected 'hello my friend' note, got %v, from %v", noIdContent, noIdNote)
 	}
 }
 
