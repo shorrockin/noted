@@ -4,7 +4,7 @@ List  = require "./List"
 {div, span}   = React.DOM
 {form, input} = React.DOM
 
-App = React.createClass
+module.exports = React.createClass
   getInitialState: () ->
     { items: [], text: "" }
 
@@ -29,5 +29,3 @@ App = React.createClass
           onChange: @onChange
         }
       List items: @state.items
-
-module.exports = App

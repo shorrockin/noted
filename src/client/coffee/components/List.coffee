@@ -1,11 +1,9 @@
-React = require "react"
+React    = require "react"
+ListItem = require "./ListItem"
 
-{ul, li} = React.DOM
+{ul} = React.DOM
 
-List = React.createClass
+module.exports = React.createClass
   render: () ->
-    createItem = (text) -> li(null, text)
-
-    ul null, @props.items.map(createItem)
-
-module.exports = List
+    ul null, @props.items.map (content) ->
+      ListItem(content: content)
