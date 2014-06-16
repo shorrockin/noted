@@ -1,6 +1,7 @@
 EventEmitter = require("events").EventEmitter
+events = require("../events/GenericEvents")
 
-class Dispatcher
+module.exports = class Store
   constructor: () ->
     @_emitter = new EventEmitter()
 
@@ -10,4 +11,8 @@ class Dispatcher
   fire: (event) ->
     @_emitter.emit(event.event, event)
 
-module.exports = new Dispatcher()
+  removeOn: (event, cb) ->
+    @_emitter.removeListener(event.event, cb)
+
+  changed: () ->
+    @fire(new events.Changed())

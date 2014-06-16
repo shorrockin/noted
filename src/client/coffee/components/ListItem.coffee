@@ -4,4 +4,4 @@ React = require "react"
 
 module.exports = React.createClass
   render: () ->
-    li(null, @props.content)
+    li null, @props.note.content
