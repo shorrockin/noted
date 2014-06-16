@@ -10,7 +10,7 @@ type Note struct {
 	Content string `json:"content"`
 }
 
-func (note Note) String() string {
+func (note *Note) String() string {
 	bytes, error := json.Marshal(note)
 	if error != nil {
 		log.Warn("encountered error marshelling note: %v", error)
@@ -28,7 +28,7 @@ func (note *Note) FromJson(bytes []byte) (err error) {
 // notes.
 type NoteCollection []Note
 
-func (notes NoteCollection) String() string {
+func (notes *NoteCollection) String() string {
 	bytes, error := json.Marshal(notes)
 	if error != nil {
 		log.Warn("encountered error marshelling notes collection: %v", error)
