@@ -1,6 +1,7 @@
 package store
 
 import (
+	"github.com/shorrockin/noted/log"
 	"testing"
 )
 
@@ -34,6 +35,14 @@ func TestJsonRendering(t *testing.T) {
 	if noIdNote.Content != "hello my friend" {
 		t.Errorf("expected 'hello my friend' note, got %v, from %v", noIdContent, noIdNote)
 	}
+}
+
+func TestJsonCollectionRendering(t *testing.T) {
+	CreateNote("this is the first note")
+	CreateNote("this is the second note")
+
+	stringd := Notes.String()
+	log.Debug("converted Notes to %v", stringd)
 }
 
 func TestCreateNote(t *testing.T) {

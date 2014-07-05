@@ -8,6 +8,8 @@ NoteActions  = require "../actions/NoteActions"
 
 module.exports = React.createClass
   getInitialState: () ->
+    NoteActions.init() # is this the right place to kick this off?
+
     { items: NoteStore.all() }
 
   componentDidMount: () ->
