@@ -2,23 +2,14 @@ src  = "src"
 dest = "build"
 
 client =
-  src: "#{src}/client"
-  dest: "#{dest}/client"
+  src: "/build/src"
+  dest: "/build/out"
   app: "app.coffee"
 
 
 module.exports = {
   client:
     dest: client.dest
-
-  server:
-    root: "#{src}/server"
-    binary: "server"
-    dest: dest
-    src: "#{src}/server/**/*.go"
-    main: "#{src}/server/main"
-    gohome: "build/go"
-    pkg: "github.com/shorrockin/noted"
 
   scripts:
     debug: true
