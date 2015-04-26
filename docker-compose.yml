@@ -1,8 +1,11 @@
-client:
-  build: ./client
-  ports:
-    - 8080:80
 server:
   build: ./server
   ports: 
     - 3000:3000
+
+client:
+  build: ./client
+  links:
+    - server:apiserver
+  ports:
+    - 8080:80
