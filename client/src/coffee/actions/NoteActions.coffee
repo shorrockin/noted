@@ -10,14 +10,14 @@ module.exports = {
     # TODO probably should have a single batch updated instead
     # of iterating.
     # TODO error handling
-    request.get("http://localhost:3000/notes").end (error, result) ->
+    request.get("/api/notes").end (error, result) ->
       for note in result.body
         Dispatcher.fire(new Created(note.id, note.content))
 
 
   create: (content) ->
     Dispatcher.fire(new Creating(content))
-    request.post("http://localhost:3000/notes").send(content).end (error, result) ->
+    request.post("/api/notes").send(content).end (error, result) ->
       Dispatcher.fire(new Created(result.body.id, result.body.content))
 
   destroy: (id) ->
