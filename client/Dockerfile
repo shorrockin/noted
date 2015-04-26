@@ -1,5 +1,6 @@
 FROM google/nodejs
 
+# update the operating system
 RUN apt-get update -qq && apt-get install -y build-essential
 RUN apt-get install -y ruby
 RUN gem install sass
@@ -8,6 +9,7 @@ RUN mkdir /build
 
 RUN npm install gulp -g
 
+# create and build all the codes
 WORKDIR /build
 ADD build/package.json /build/package.json
 RUN npm install
@@ -20,3 +22,15 @@ RUN mkdir /build/out
 ADD src/html /build/out
 
 RUN gulp
+
+RUN apt-get update -qq && apt-get -y install nginx
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+ADD build/nginx.conf /etc/nginx/sites-available/default
+
+# Define default command.
+CMD ["nginx"]
+
+# Expose ports.
+EXPOSE 80
+EXPOSE 443
