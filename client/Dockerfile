@@ -12,14 +12,13 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
-ADD build/nginx.conf /etc/nginx/sites-available/default
-
 RUN mkdir /build
 
 RUN npm install gulp -g
 
 # create and build all the codes
 WORKDIR /build
+
 ADD build/package.json /build/package.json
 RUN npm install
 
@@ -31,6 +30,8 @@ RUN mkdir /build/out
 ADD src/html /build/out
 
 RUN gulp
+
+ADD build/nginx.conf /etc/nginx/sites-available/default
 
 # Define default command.
 CMD ["nginx"]

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run -v `pwd`/server/src:/gopath/src/github.com/shorrockin/noted -it --rm noted-server go test github.com/shorrockin/noted/./...

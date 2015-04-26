@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/shorrockin/noted/log"
 	"net/http"
 	"testing"
+
+	"github.com/shorrockin/noted/log"
 )
 
 func TestMap(t *testing.T) {
