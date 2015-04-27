@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
+	"net/http"
+
 	"github.com/gorilla/mux"
 	"github.com/shorrockin/noted/log"
 	"github.com/shorrockin/noted/store"
-	"io/ioutil"
-	"net/http"
 )
 
 func init() {

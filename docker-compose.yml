@@ -1,5 +1,8 @@
 server:
   build: ./server
+  command: rerun --test github.com/shorrockin/noted
+  volumes:
+    - ./server/src:/gopath/src/github.com/shorrockin/noted
   ports: 
     - 3000:3000
 

@@ -31,6 +31,6 @@ func initRouter() http.Handler {
 }
 
 func main() {
-	log.Debug("noted server booting up, binding to port 3000!!")
+	log.Debug("noted server booting up, binding to port 3000!")
 	http.ListenAndServe(":3000", initRouter())
 }
